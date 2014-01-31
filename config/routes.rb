@@ -1,6 +1,11 @@
 Hostess::Application.routes.draw do
   get "users/new"
   get "sign-up" => "users#new", as: "sign_up"
+  resources :sessions, only: [:create, :destroy]
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:post, :get]
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+  root to: "users#new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
