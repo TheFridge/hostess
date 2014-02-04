@@ -5,8 +5,12 @@ gem 'rails', '4.0.1'
 gem 'omniauth-facebook'
 gem "figaro"
 
+gem "pg"
+group :production do
+  gem 'rails_12factor'
+end
+
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -30,9 +34,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
-    gem 'rspec-rails', '~> 3.0.0.beta'
-    gem 'capybara'
-    gem 'pry'
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'capybara'
+  gem 'pry'
+  gem 'sqlite3'
 end
 
 group :doc do
