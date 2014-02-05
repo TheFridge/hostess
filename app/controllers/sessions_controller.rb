@@ -2,13 +2,13 @@ class SessionsController < ApplicationController
   def create
     user= User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    cookies["email"] =
+    cookies.signed["email"] =
       {
        value: user.email,
         expires: 1.year.from_now,
          domain: '127.0.0.1'
     }
-    cookies["user_id"] ={
+    cookies.signed["user_id"] ={
        value: user.id,
         expires: 1.year.from_now,
          domain: '127.0.0.1'
