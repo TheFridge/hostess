@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         expires: 1.year.from_now,
          domain: '127.0.0.1'
     }
-    redirect_to root_url
+    redirect_to "http://localhost:3000"
   end
 
   def destroy
