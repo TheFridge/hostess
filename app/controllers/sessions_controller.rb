@@ -6,12 +6,12 @@ class SessionsController < ApplicationController
       {
        value: user.email,
         expires: 1.year.from_now,
-         domain: '127.0.0.1'
+         domain: 'herokuapp.com'
     }
     cookies.signed["user_id"] ={
        value: user.id,
         expires: 1.year.from_now,
-         domain: '127.0.0.1'
+         domain: 'herokuapp.com'
     }
     redirect_to root_url
   end
