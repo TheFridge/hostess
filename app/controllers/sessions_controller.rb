@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         expires: 1.year.from_now,
          domain: 'herokuapp.com'
     }
-    redirect_to root_url
+    redirect_to 'http://blooming-wildwood-1035.herokuapp.com/auth/hostess/callback'
   end
 
   def destroy
